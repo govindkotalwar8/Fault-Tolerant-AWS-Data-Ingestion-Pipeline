@@ -1,8 +1,3 @@
-Great, here is your **updated READY-TO-COPY README.md** with additional screenshot sections clearly defined.
-You can paste this directly into GitHub. Only requirement: place screenshots in the `/screenshots` folder.
-
----
-
 # Fault-Tolerant AWS Data Ingestion Pipeline
 
 S3 → RDS (MySQL) with Automatic AWS Glue Fallback
@@ -22,39 +17,7 @@ This project demonstrates real-world cloud integration, fault tolerance, and pro
 
 ### Architecture Screenshot
 
-Place your diagram image in the repository:
-
-```
-/screenshots/architecture-diagram.png
-```
-
-Then it will display here:
 ![Architecture Diagram](screenshots/architecture-diagram.png)
-
----
-
-### Architecture Flow (GitHub Rendered Diagram)
-
-```mermaid
-flowchart LR
-    User((User))
-    Docker[Dockerized Python App]
-    S3[(Amazon S3\nCSV File)]
-    RDS[(Amazon RDS\nMySQL Database)]
-    Glue[(AWS Glue\nData Catalog)]
-    
-    User --> Docker
-    S3 --> Docker
-    
-    Docker -->|Insert Success| RDS
-    Docker -->|Failure / Timeout| Glue
-    
-    subgraph AWS_Cloud [AWS Cloud]
-        S3
-        RDS
-        Glue
-    end
-```
 
 ---
 
@@ -174,7 +137,7 @@ Table registered in Glue successfully
 
 ### 2. Working Docker Execution Proof
 
-Provide execution logs that show:
+Provide logs showing:
 
 * Successful push to RDS
   or
@@ -184,61 +147,38 @@ Provide execution logs that show:
 
 ### 3. Required Screenshots
 
-Create a folder:
+#### Architecture Diagram
 
-```
-/screenshots
-```
+![Architecture Diagram](screenshots/architecture-diagram.png)
 
-Add the following screenshots:
+#### S3 Bucket Screenshot
 
-#### 1. Architecture Diagram
+![S3 Bucket](screenshots/s3-bucket.png)
 
-File:
+#### RDS MySQL Records Screenshot (if success case)
 
-```
-screenshots/architecture-diagram.png
-```
+![RDS Records](screenshots/rds-records.png)
 
-#### 2. S3 Bucket Screenshot
+#### AWS Glue Table Screenshot (if fallback case)
 
-Showing CSV file inside bucket.
+![Glue Table](screenshots/glue-table.png)
 
-```
-screenshots/s3-bucket.png
-```
+#### Docker Execution Logs
 
-#### 3. RDS MySQL Records Screenshot (if success case)
+![Docker Logs](screenshots/docker-logs.png)
 
-Show inserted records from RDS Query Editor.
-
-```
-screenshots/rds-records.png
-```
-
-#### 4. AWS Glue Table Screenshot (if fallback case)
-
-Show created Glue table in Glue Catalog.
-
-```
-screenshots/glue-table.png
-```
-
-#### 5. Docker Execution Logs
-
-Screenshot of successful run.
-
-```
-screenshots/docker-logs.png
-```
-
+---
 
 ## Challenges Faced and Solutions
 
-* RDS access failures fixed by enabling public access and opening port 3306.
-* Unknown database errors solved by creating database manually.
-* Glue failures fixed by creating Glue database in correct region.
-* Docker connectivity issues resolved by starting Docker Desktop and WSL.
+* RDS access failures fixed by enabling public access and opening port 3306
+* Unknown database errors solved by creating database manually
+* Glue failures fixed by creating Glue database in correct region
+* Docker connectivity issues resolved by starting Docker Desktop and WSL
 
 ---
+
+## Status
+
+Project successfully implemented, tested, and verified.
 
